@@ -16,16 +16,28 @@ interface CardImageProps {
 }
 
 const CardImage = ({ uri }: CardImageProps) => {
-  return <Image source={{ uri }} className="w-full h-48 rounded-t-xl" />;
+  return <Image source={{ uri }} className="w-full h-48 rounded-t-xl" resizeMode="cover" />;
 };
 
-const CardTitle = ({ title }: { title: string }) => {
-  return <Text className="px-3 py-2 font-bold text-2xl">{title}</Text>;
+const CardTitle = ({
+  title,
+  className = "",
+}: {
+  title: string;
+  className?: string;
+}) => {
+  return <Text className={`font-bold text-2xl ${className}`}>{title}</Text>;
 };
 
-const CardText = ({ text }: { text: string }) => {
+const CardText = ({
+  text,
+  className = "",
+}: {
+  text: string;
+  className?: string;
+}) => {
   return (
-    <Text className="px-3 py-2 text-lg" numberOfLines={2}>
+    <Text className={`text-lg ${className}`} numberOfLines={3}>
       {text}
     </Text>
   );
