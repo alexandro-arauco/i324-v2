@@ -68,7 +68,7 @@ const LeadersList = ({ leaders }: LeadersListProps) => {
             </Text>
           </View>
         )}
-        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         horizontal
       />
     </>
