@@ -5,8 +5,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "book",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -15,12 +15,12 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "music",
     leaders: [
-      { name: "Juan Pérez Perez", gender: "male" },
-      { name: "María López", gender: "female" },
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez Perez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -29,8 +29,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "users",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -39,8 +39,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "female",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -49,8 +49,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "male",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -59,8 +59,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "child",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
   {
@@ -69,8 +69,8 @@ export const MINISTRIES = [
     description: "Enseñanza bíblica y discipulado para todas las edades.",
     icon: "globe",
     leaders: [
-      { name: "Juan Pérez", gender: "male" },
-      { name: "María López", gender: "female" },
+      { name: "Juan Pérez", gender: "male", phone: 1234567890 },
+      { name: "María López", gender: "female", phone: 1234567890 },
     ],
   },
 ];
