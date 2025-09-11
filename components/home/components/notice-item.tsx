@@ -8,7 +8,7 @@ interface NoticeItemProps {
 
 const NoticeItem = ({ item }: NoticeItemProps) => {
   return (
-    <View className="px-3 py-2" key={item.id}>
+    <View className="px-3 py-2">
       <Card>
         <View className="flex-1 flex-row p-3 items-center">
           <Image
