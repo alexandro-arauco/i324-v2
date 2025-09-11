@@ -11,7 +11,7 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Inicio",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome size={size} name="home" color={color} />
           ),
@@ -33,6 +33,7 @@ const TabsLayout = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome size={size} name="calendar" color={color} />
           ),
+          headerShown: false,
         }}
       />
     </Tabs>
