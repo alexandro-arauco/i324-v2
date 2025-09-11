@@ -10,7 +10,7 @@ const NoticesSection = () => {
       </Text>
       <FlatList
         data={NOTICES}
-        renderItem={({ item }) => <NoticeItem item={item} />}
+        renderItem={({ item }) => <NoticeItem key={item.id} item={item} />}
         keyExtractor={(_, index) => index.toString()}
         showsVerticalScrollIndicator={false}
       />
