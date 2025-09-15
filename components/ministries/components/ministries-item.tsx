@@ -1,11 +1,16 @@
 import Card from "@/components/shared/Card";
+import {
+  Data,
+  Leader,
+  MinistriesToLeader,
+} from "@/infrastructure/interfaces/ministries";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useState } from "react";
 import { FlatList, Modal, Pressable, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 interface MinistiresItemProps {
-  item: any;
+  item: Data;
 }
 
 const MinistiresItem = ({ item }: MinistiresItemProps) => {
@@ -37,7 +42,9 @@ const MinistiresItem = ({ item }: MinistiresItemProps) => {
           </Pressable>
         </View>
 
-        {showLeaders && <LeadersList leaders={item.leaders} />}
+        {showLeaders && (
+          <LeadersList ministriesToLeader={item.ministriesToLeaders} />
+        )}
       </Card>
     </View>
   );
@@ -46,16 +53,19 @@ const MinistiresItem = ({ item }: MinistiresItemProps) => {
 export default MinistiresItem;
 
 interface LeadersListProps {
-  leaders: any;
+  ministriesToLeader: MinistriesToLeader[];
 }
 
-const LeadersList = ({ leaders }: LeadersListProps) => {
+const LeadersList = ({ ministriesToLeader }: LeadersListProps) => {
   const [openModalLeaderInformation, setOpenModalLeaderInformation] =
     useState(false);
 
-  const [leaderSelected, setLeaderSelected] = useState({
+  const [leaderSelected, setLeaderSelected] = useState<
+    Pick<Leader, "name" | "phoneNumber" | "email">
+  >({
     name: "",
-    phone: "",
+    phoneNumber: "",
+    email: "",
   });
 
   return (
@@ -63,32 +73,33 @@ const LeadersList = ({ leaders }: LeadersListProps) => {
       <SafeAreaView>
         <Text className="text-lg font-bold tracking-wider p-3">Líderes</Text>
         <FlatList
-          data={leaders}
-          keyExtractor={(item, index) => `${item.name}-${index}`}
+          data={ministriesToLeader}
+          keyExtractor={(item, index) => `${item.leader.name}-${index}`}
           renderItem={({ item, index }) => (
             <Pressable
               className="active:opacity-80"
               onPress={() => {
                 setLeaderSelected({
-                  name: item.name,
-                  phone: item.phone,
+                  name: item.leader.name,
+                  phoneNumber: item.leader.phoneNumber,
+                  email: item.leader.email,
                 });
                 setOpenModalLeaderInformation(true);
               }}
             >
               <View
                 className="px-3 mb-3 flex-1 justify-center items-center w-[85px] h-[85px]"
-                key={`${item.name}-${index}`}
+                key={`${item.leader.name}-${index}`}
               >
                 <View className="w-[45px] h-[45px] bg-red-100 justify-center items-center rounded-full">
                   <FontAwesome
-                    name={item.gender as any}
+                    name={item.leader.gender as any}
                     size={25}
                     color="tomato"
                   />
                 </View>
                 <Text className="px-3 text-sm text-center" numberOfLines={2}>
-                  {item.name}
+                  {item.leader.name}
                 </Text>
               </View>
             </Pressable>
@@ -101,7 +112,8 @@ const LeadersList = ({ leaders }: LeadersListProps) => {
             visible={openModalLeaderInformation}
             closeModal={() => setOpenModalLeaderInformation(false)}
             name={leaderSelected.name}
-            phone={leaderSelected.phone}
+            phoneNumber={leaderSelected.phoneNumber}
+            email={leaderSelected.email}
           />
         )}
       </SafeAreaView>
@@ -113,12 +125,14 @@ const ModalLeaderInformation = ({
   visible,
   closeModal,
   name,
-  phone,
+  phoneNumber,
+  email,
 }: {
   visible: boolean;
   closeModal: () => void;
   name: string;
-  phone: string;
+  phoneNumber: string;
+  email: string;
 }) => {
   return (
     <Modal
@@ -140,7 +154,11 @@ const ModalLeaderInformation = ({
             </View>
             <View className="flex-row">
               <Text className="text-xl font-bold">Celular: </Text>
-              <Text className="text-lg text-gray-600">{phone}</Text>
+              <Text className="text-lg text-gray-600">{phoneNumber}</Text>
+            </View>
+            <View className="flex-row">
+              <Text className="text-xl font-bold">Correo Electrónico: </Text>
+              <Text className="text-lg text-gray-600">{email}</Text>
             </View>
           </View>
 
